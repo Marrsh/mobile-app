@@ -1,14 +1,15 @@
 <head>
 <meta charset="UTF-8" />
    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link href="{{ asset('css/app.css') }}" rel="stylesheet">
+   <link href="{{ asset('css/app.css') }}" rel="stylesheet">
+   <link href="{{ asset('css/index.css') }}" rel="stylesheet">
     <script src="{{ asset('js/form.js')}}"></script>
 </head>
 <body class="font-sans">
   <h1 class="text-center bg-black p-3 text-5xl mx-auto bg-black font-stronger antialiased text-white"><img src="https://senditmobile.com/img/logo.png" class="w-20"></h1>
     <div class="container mx-auto my-20">
       <div class="items-stretch rounded-lg shadow-xl bg-mobile-yellow xl:mx-auto ">
-        <h1 class="text-center text-3xl py-4">Send a pallet</h1>
+        <h1 class=" text-3xl font-light p-4">Pallet Delivery</h1>
             <form class="text-center">
               <div class="grid xl:grid-cols-3 gap-4">
                 <div>
@@ -28,10 +29,35 @@
                 </div>
                 <div>
                   <input hidden name="pallets">
-                  <button class="border-gray border shadow-lg rounded-lg p-3 md:w-80 w-60 bg-white text-left">Pallets<svg aria-hidden="true" focusable="false" data-prefix="fas" data-icon="angle-down" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 512" class="w-3 float-right inline-block"><path fill="currentColor" d="M143 352.3L7 216.3c-9.4-9.4-9.4-24.6 0-33.9l22.6-22.6c9.4-9.4 24.6-9.4 33.9 0l96.4 96.4 96.4-96.4c9.4-9.4 24.6-9.4 33.9 0l22.6 22.6c9.4 9.4 9.4 24.6 0 33.9l-136 136c-9.2 9.4-24.4 9.4-33.8 0z" class=""></path></svg></button>
+                  <button id="pallet-button" type="button" class="pallet-button border-gray border shadow-lg rounded-lg p-3 md:w-80 w-60 bg-white text-left">Pallets<svg aria-hidden="true" focusable="false" data-prefix="fas" data-icon="angle-down" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 512" class="w-3 float-right inline-block"><path fill="currentColor" d="M143 352.3L7 216.3c-9.4-9.4-9.4-24.6 0-33.9l22.6-22.6c9.4-9.4 24.6-9.4 33.9 0l96.4 96.4 96.4-96.4c9.4-9.4 24.6-9.4 33.9 0l22.6 22.6c9.4 9.4 9.4 24.6 0 33.9l-136 136c-9.2 9.4-24.4 9.4-33.8 0z" class=""></path></svg></button>
+                </div> 
+              </div>
+
+              <div id="pallet-options" class="bg-white w-100 z-index-10 mt-5 pb-5" hidden>
+                <h1 class="antialiased text-3xl text-left pt-4 pl-4 font-light">Pallet sizes</h1> 
+                <div class="lg:flex justify-content-center rounded-lg gap-20 mx-auto">
+             
+                  <div class="block">
+                  <label for="full" class="block">Full size</label> 
+                    <button type="button" id="plus" class="h-10 bg-mobile-yellow cursor-pointer outline-none w-10 rounded-tl-lg rounded-bl-lg shadow-xs">-</button>
+                    <input type="number" class=" h-10 outline-none focus:outline-none text-center bg-white font-semibold text-md" name="full" value="0"></input>
+                    <button type="button" id="minus" class="h-10 bg-mobile-yellow cursor-pointer outline-none w-10 rounded-tr-lg rounded-br-lg shadow-xs">+</button>
+                  </div>
+                  <div class="block">
+                  <label for="full" class="block">Half size</label> 
+                  <button type="button" id="plus" class="h-10 bg-mobile-yellow cursor-pointer outline-none w-10 rounded-tl-lg rounded-bl-lg shadow-xs">-</button>
+                    <input type="number" class=" h-10 outline-none focus:outline-none text-center bg-white font-semibold text-md" name="full" value="0"></input>
+                    <button type="button" id="minus" class="h-10 bg-mobile-yellow cursor-pointer outline-none w-10 rounded-tr-lg rounded-br-lg shadow-xs">+</button>
+                  </div>
+                  <div class="block">
+                  <label for="full" class="block">Quater size</label> 
+                  <button type="button" id="plus" class="h-10 bg-mobile-yellow cursor-pointer outline-none w-10 rounded-tl-lg rounded-bl-lg shadow-xs">-</button>
+                    <input type="number" class=" h-10 outline-none focus:outline-none text-center bg-white font-semibold text-md" name="full" value="0"></input>
+                    <button type="button" id="minus" class="h-10 bg-mobile-yellow cursor-pointer outline-none w-10 rounded-tr-lg rounded-br-lg shadow-xs">+</button>
+                  </div>
                 </div>
               </div>
-              <button class="btn p-2 w-60 my-5 rounded-md bg-black text-mobile-yellow mx-auto text-center transition duration-500 ease-in-out transform hover:-translate-y-1 hover:scale-110 hover:text-mobile-yellow" type="submit">Get Quote</button>
+              <button class="btn p-2 w-60 my-5 rounded-md bg-black text-mobile-yellow mx-auto text-center hover:text-mobile-yellow" type="submit">Get Quote</button>
         </form>
       </div>
     </div>
@@ -41,5 +67,5 @@ test
   <!-- <div class="relative overflow-hidden bg-white" style="height:17%">
     <svg id="truck" aria-hidden="true" focusable="false" data-prefix="fas" data-icon="truck-moving" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 512" class="mt-20 w-20 svg-inline--fa fa-truck-moving fa-w-20 fa-3x"><path fill="currentColor" d="M621.3 237.3l-58.5-58.5c-12-12-28.3-18.7-45.3-18.7H480V64c0-17.7-14.3-32-32-32H32C14.3 32 0 46.3 0 64v336c0 44.2 35.8 80 80 80 26.3 0 49.4-12.9 64-32.4 14.6 19.6 37.7 32.4 64 32.4 44.2 0 80-35.8 80-80 0-5.5-.6-10.8-1.6-16h163.2c-1.1 5.2-1.6 10.5-1.6 16 0 44.2 35.8 80 80 80s80-35.8 80-80c0-5.5-.6-10.8-1.6-16H624c8.8 0 16-7.2 16-16v-85.5c0-17-6.7-33.2-18.7-45.2zM80 432c-17.6 0-32-14.4-32-32s14.4-32 32-32 32 14.4 32 32-14.4 32-32 32zm128 0c-17.6 0-32-14.4-32-32s14.4-32 32-32 32 14.4 32 32-14.4 32-32 32zm272-224h37.5c4.3 0 8.3 1.7 11.3 4.7l43.3 43.3H480v-48zm48 224c-17.6 0-32-14.4-32-32s14.4-32 32-32 32 14.4 32 32-14.4 32-32 32z" class=""></path></svg>
   </div> -->
-  
 </body>
+<script src="{{ asset('js/form.js')}}"></script>

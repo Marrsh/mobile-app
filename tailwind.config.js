@@ -9,7 +9,6 @@ module.exports = {
   theme: {
     extend: {
       colors: {
-    
         mobile: {
           yellow: '#fff200',
           black: 'black'
@@ -18,7 +17,9 @@ module.exports = {
     },
   },
   variants: {
-    extend: {},
+    extend: {
+      appearance: ['hover', 'focus'],
+    },
   },
   plugins: [],
 }
