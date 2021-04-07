@@ -1,15 +1,26 @@
-// alert("test")
 var display = document.querySelector('#pallet-options');
-var button = document.querySelector('#pallet-button');
-var add = document.querySelector('#plus');
-var subtract = document.getElementById('minus');
+var card = document.querySelector('#card');
+var add = document.querySelector('.add');
+var mousedown = false;
+if (card) {
+    card.addEventListener("click",(e) => {
+        // console.log('clicked');
+        var clicked = e.target.classList;
+      
+        if (clicked.contains("pallet-button")){
+            console.log("here");
+            display.toggleAttribute("hidden");
+        }
+        if (clicked.contains("add")){
+            e.target.closest('.form-group').querySelector('input').valueAsNumber +=1;
+        }
+        if (clicked.contains("minus")){
+            if(e.target.closest('.form-group').querySelector('input').valueAsNumber){
+                e.target.closest('.form-group').querySelector('input').valueAsNumber -=1;
+            }
+        }
+  
+    
+    });
 
-button.addEventListener("click", function (){
-    display.toggleAttribute("hidden");
-});
-add.addEventListener("click", function (){
-    console.log(this);
-});
-subtract.addEventListener("click", function (){
-    console.log(this);
-});
+}
