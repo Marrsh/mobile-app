@@ -36,9 +36,7 @@ class FormController extends BaseController
         return view('details',
         [
             'formData' => $request,
-            'price' => $prices = [
-                'quarter'=>
-            ]
+            'price' => $total
         ]);
     }
 
