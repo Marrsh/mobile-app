@@ -55,11 +55,7 @@
                   </div>
                 </div>
               </div>
-              <!-- Rounded switch -->
-<label class="switch">
-  <input type="checkbox">
-  <span class="slider round"></span>
-</label>
+
               <button class="btn p-2 w-60 my-5 rounded-md bg-black text-mobile-yellow mx-auto text-center hover:text-mobile-yellow" type="submit">Get Quote</button>
         </form>
       </div>
