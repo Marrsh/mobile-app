@@ -11,8 +11,18 @@ const mix = require('laravel-mix');
  |
  */
 
+ 
 mix.js('resources/js/app.js', 'public/js')
 .postCss('resources/css/app.css', 'public/css', [
-    require('tailwindcss'),])
-    .react()
-    .sass('resources/sass/app.scss', 'public/css');
+    require('tailwindcss'),
+])
+.react()
+.sass('resources/sass/app.scss', 'public/css');
+
+// mix.js([
+//     'resources/js/app.js',
+//     // 'resources/js/form.js'
+//     // You can add more JS files here.
+
+// ], 'public/js/app.js');
+
